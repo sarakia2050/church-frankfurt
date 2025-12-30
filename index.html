@@ -75,7 +75,7 @@
         font-size: 16px;
     }
 
-    /* متن تاریخ برگزاری بعدی */
+    /* نمایش تاریخ برگزاری بعدی */
     .nextDateBox{
         margin-top: 12px;
         font-size: 18px;
@@ -91,7 +91,7 @@
         border-radius: 14px;
     }
 
-    /* موبایل: فاصله‌ها کمتر */
+    /* موبایل */
     @media (max-width: 600px){
         header{
             padding: 26px 16px;
@@ -140,7 +140,7 @@
 
         <!-- تاریخ برگزاری بعدی (میلادی) -->
         <div class="nextDateBox">
-            📌 <strong>تاریخ برگزاری بعدی (Gregorian):</strong>
+            📌 <strong>تاریخ برگزاری بعدی (میلادی):</strong>
             <span id="nextPrayerDate"></span> — 12:00
         </div>
     </p>
@@ -178,17 +178,9 @@
 
 <script>
 (function(){
-  /*
-    جلسه پایه: Sunday, 11 January 2026 — 12:00 (Frankfurt)
-    هر 14 روز تکرار می‌شود.
-    اگر امروز روز جلسه باشد:
-      - قبل از ساعت 16 => همان جلسه امروز را نشان بده
-      - بعد از ساعت 16 => جلسه بعدی (14 روز بعد) را نشان بده
-  */
-
-  const base = new Date("2026-01-11T12:00:00+01:00"); // Frankfurt time
+  // جلسه پایه: یکشنبه 11 ژانویه 2026 ساعت 12:00 (Frankfurt)
+  const base = new Date("2026-01-11T12:00:00+01:00");
   const intervalMs = 14 * 24 * 60 * 60 * 1000;
-  const now = new Date();
 
   function sameYMD(a,b){
     return a.getFullYear()===b.getFullYear() &&
@@ -196,31 +188,54 @@
            a.getDate()===b.getDate();
   }
 
-  let next;
-  if(now.getTime() < base.getTime()){
-    next = new Date(base.getTime());
-  } else {
-    const k = Math.floor((now.getTime() - base.getTime()) / intervalMs);
-    const last = new Date(base.getTime() + k * intervalMs);
+  function formatGregorian(d){
+    // نمایش میلادی با حروف انگلیسی (لاتین)
+    const fmt = new Intl.DateTimeFormat("en-GB", {
+      weekday:"long", day:"2-digit", month:"long", year:"numeric"
+    });
+    return fmt.format(d);
+  }
 
-    if(sameYMD(now, last)){
-      next = (now.getHours() >= 16)
-        ? new Date(last.getTime() + intervalMs)
-        : new Date(last.getTime());
+  function computeNext(now){
+    let next;
+    if(now.getTime() < base.getTime()){
+      next = new Date(base.getTime());
     } else {
-      next = new Date(last.getTime() + intervalMs);
+      const k = Math.floor((now.getTime() - base.getTime()) / intervalMs);
+      const last = new Date(base.getTime() + k * intervalMs);
+
+      if(sameYMD(now, last)){
+        // روز جلسه است: قبل از 16 همان روز => همان جلسه
+        // بعد از 16 => جلسه بعدی
+        next = (now.getHours() >= 16) ? new Date(last.getTime() + intervalMs) : new Date(last.getTime());
+      } else {
+        next = new Date(last.getTime() + intervalMs);
+      }
+    }
+    return next;
+  }
+
+  function render(){
+    const now = new Date();
+    const next = computeNext(now);
+    const el = document.getElementById("nextPrayerDate");
+    if(el) el.textContent = formatGregorian(next);
+
+    // اگر امروز روز جلسه است و هنوز قبل از 16:00 هستیم،
+    // تایمر بگذار که دقیقاً ساعت 16:00 خودکار آپدیت کند.
+    const k = Math.floor((now.getTime() - base.getTime()) / intervalMs);
+    const last = new Date(base.getTime() + Math.max(0,k) * intervalMs);
+
+    if(sameYMD(now, last) && now.getHours() < 16){
+      const switchTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 16, 0, 0, 0);
+      const ms = switchTime.getTime() - now.getTime();
+      if(ms > 0){
+        setTimeout(render, ms + 500); // +500 برای اطمینان
+      }
     }
   }
 
-  // نمایش میلادی (Gregorian) با حروف انگلیسی
-  const fmt = new Intl.DateTimeFormat("en-GB", {
-    weekday:"long", day:"2-digit", month:"long", year:"numeric"
-  });
-
-  const el = document.getElementById("nextPrayerDate");
-  if(el){
-    el.textContent = fmt.format(next);
-  }
+  render();
 })();
 </script>
 
