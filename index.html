@@ -1,71 +1,123 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>کلیسای ایلیا – کلیسای فارسی‌زبانان فرانکفورت</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>کلیسای ایلیا – کلیسای فارسی‌زبانان فرانکفورت</title>
 
-<style>
-  body{
-    margin:0;
-    padding:0;
-    font-family:"Tahoma", sans-serif;
-    background:#0d0d0d;
-    color:#f2f2f2;
-    line-height:2;
-  }
+  <style>
+    body{
+      margin:0;
+      padding:0;
+      font-family:"Tahoma", sans-serif;
+      background:#0d0d0d;
+      color:#f2f2f2;
+      line-height:2;
+    }
 
-  header{
-    background:#000;
-    text-align:center;
-    padding:26px 16px;              /* فاصله کمتر برای موبایل */
-    border-bottom:5px solid #d4af37;
-  }
-  header h1{
-    font-size:34px;
-    margin:0 0 8px 0;
-    color:#d4af37;
-    font-weight:bold;
-  }
-  header h2{
-    font-size:17px;
-    color:#e0e0e0;
-    margin:0;
-  }
+    header{
+      background:#000;
+      text-align:center;
+      padding:22px 16px;              /* فاصله کمتر */
+      border-bottom:5px solid #d4af37;
+    }
+    header h1{
+      font-size:32px;
+      margin:0 0 6px 0;
+      color:#d4af37;
+      font-weight:bold;
+    }
+    header h2{
+      font-size:16px;
+      color:#e0e0e0;
+      margin:0;
+    }
 
-  .container{
-    max-width:900px;
-    margin:14px auto;              /* کمتر */
-    background:#1a1a1a;
-    padding:18px;                  /* کمتر */
-    border-radius:14px;
-    box-shadow:0 0 25px rgba(0,0,0,0.5);
-    border:1px solid #4d4d4d;
-  }
+    .container{
+      max-width:900px;
+      margin:12px auto;
+      background:#1a1a1a;
+      padding:16px;
+      border-radius:14px;
+      box-shadow:0 0 25px rgba(0,0,0,0.5);
+      border:1px solid #4d4d4d;
+    }
 
-  h3{
-    font-size:21px;
-    color:#d4af37;
-    border-right:6px solid #d4af37;
-    padding-right:14px;
-    margin-top:20px;
-    margin-bottom:10px;
-    font-weight:bold;
-  }
+    h3{
+      font-size:21px;
+      color:#d4af37;
+      border-right:6px solid #d4af37;
+      padding-right:14px;
+      margin-top:18px;
+      margin-bottom:10px;
+      font-weight:bold;
+    }
 
-  a{
-    color:#d4af37;
-    text-decoration:none;
-    font-weight:bold;
-  }
-  a:hover{
-    text-decoration:underline;
-    color:#ffdd66;
-  }
+    a{
+      color:#d4af37;
+      text-decoration:none;
+      font-weight:bold;
+    }
+    a:hover{
+      text-decoration:underline;
+      color:#ffdd66;
+    }
 
-  .footer{
-    text-align:center;
-    padding:18px;
-    margin-top:22px;
-    background:#000;
-    border-top:4px solid #d4af37;
+    .infoBox{
+      margin-top:10px;
+      padding:14px;
+      border-radius:14px;
+      border:1px solid #3a3a3a;
+      background:#111;
+    }
+
+    .footer{
+      text-align:center;
+      padding:18px;
+      margin-top:18px;
+      background:#000;
+      border-top:4px solid #d4af37;
+      color:#e8e8e8;
+      font-size:16px;
+    }
+
+    @media (max-width: 600px){
+      header{ padding:16px 14px; }
+      header h1{ font-size:26px; }
+      header h2{ font-size:14px; }
+      .container{ margin:10px 10px; padding:14px; }
+      h3{ margin-top:16px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>کلیسای ایلیا</h1>
+    <h2>کلیسای فارسی‌زبانان فرانکفورت</h2>
+  </header>
+
+  <div class="container">
+
+    <h3>خوش آمدید</h3>
+    <p>
+      به کلیسای ایلیا خوش آمدید.  
+      جایی برای پرستش، دعا، مشارکت و رشد روحانی.  
+      ما با محبت مسیح گرد هم جمع می‌شویم تا حضور خداوند را تجربه کنیم.
+    </p>
+
+    <h3>جلسات کلیسا</h3>
+    <div class="infoBox">
+      ⏰ <strong>زمان:</strong> هر دو هفته <strong>یکشنبه‌ها</strong> — ساعت ۱۲:۰۰ ظهر<br>
+      📍 <strong>مکان:</strong> Frankfurt am Main<br>
+      🗺️ <strong>لوکیشن:</strong>
+      <a href="https://maps.google.com/?q=Homburger+Landstraße+805,+60437+Frankfurt+am+Main" target="_blank" rel="noopener">
+        Google Maps – Homburger Landstraße 805, 60437 Frankfurt am Main
+      </a>
+      <br><br>
+      <span id="nextPrayer" style="display:block; font-size:18px; color:#ffdd66;"></span>
+    </div>
+
+    <h3>آیهٔ روز</h3>
+    <p style="font-size:18px; color:#f0f0f0; border-right:4px solid #d4a
