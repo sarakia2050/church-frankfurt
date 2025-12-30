@@ -21,18 +21,16 @@
     padding:55px 20px;
     border-bottom:5px solid #d4af37;
   }
-
   header h1{
     font-size:40px;
-    margin:0 0 10px 0;
+    margin-bottom:10px;
     color:#d4af37;
     font-weight:bold;
   }
-
   header h2{
     font-size:20px;
     color:#e0e0e0;
-    margin:0;
+    margin-top:5px;
   }
 
   .container{
@@ -74,13 +72,20 @@
     font-size:16px;
   }
 
+  /* ✅ تاریخ: بدون بریدن، پشت سر هم */
   .nextDateBox{
     margin-top:12px;
     font-size:18px;
     color:#ffdd66;
-    white-space:nowrap;      /* همیشه یک خط */
-    overflow:hidden;
-    text-overflow:ellipsis;  /* اگر جا کم بود ... */
+    line-height:1.8;
+  }
+
+  /* ✅ تاریخ انگلیسی داخل صفحه RTL درست و کامل دیده شود */
+  .dateText, .timeText{
+    direction:ltr;
+    unicode-bidi:embed;
+    display:inline;
+    white-space:normal;   /* اجازه بده اگر جا کم بود برود خط بعد (بدون ... قطع شدن) */
   }
 
   .contactBox{
@@ -97,7 +102,7 @@
     header h2{ font-size:16px; }
     .container{ margin:16px 10px; padding:18px; }
     h3{ margin-top:28px; }
-    .nextDateBox{ font-size:16px; }
+    .nextDateBox{ font-size:16px; } /* موبایل خواناتر */
   }
 </style>
 </head>
@@ -127,7 +132,8 @@
 
     <div class="nextDateBox">
       📌 <strong>تاریخ برگزاری بعدی (میلادی):</strong>
-      <span id="nextPrayerDate">در حال محاسبه…</span> — 12:00
+      <span id="nextPrayerDate" class="dateText">در حال محاسبه…</span>
+      <span class="timeText"> — 12:00</span>
     </div>
   </p>
 
@@ -165,12 +171,10 @@
 <script>
 document.addEventListener("DOMContentLoaded", function () {
 
-  // جلسه پایه (جلسه‌ای که از آن شروع می‌کنیم): Sunday, 11 January 2026 at 12:00
-  // این تاریخ مبناست و هر 14 روز تکرار می‌شود.
-  const base = new Date(2026, 0, 11, 12, 0, 0); // (سال, ماه-0based, روز, ساعت, دقیقه, ثانیه)
-
+  // مبنا: Sunday, 11 January 2026 — 12:00 (Frankfurt)
+  const base = new Date(2026, 0, 11, 12, 0, 0); // سال، ماه(0)، روز، ساعت، دقیقه، ثانیه
   const intervalDays = 14;
-  const switchHour = 15; // ✅ ساعت آپدیت خودکار در همان روز جلسه
+  const switchHour = 15; // ✅ در روز جلسه ساعت 15:00 اتومات تاریخ می‌رود دو هفته بعد
 
   function sameYMD(a, b){
     return a.getFullYear() === b.getFullYear() &&
@@ -192,25 +196,19 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function computeNext(now){
-    // اگر هنوز قبل از مبنا هستیم، همان مبنا جلسه بعدی است
     if (now.getTime() < base.getTime()) return new Date(base.getTime());
 
-    // اختلاف روزی (تقریبی اما دقیق برای این سناریو)
-    // از روش تقویمی استفاده می‌کنیم تا DST کمتر اذیت کند
+    // آخرین جلسه <= الان
     let last = new Date(base.getTime());
     while (addDays(last, intervalDays).getTime() <= now.getTime()) {
       last = addDays(last, intervalDays);
     }
 
     // اگر امروز روز جلسه است:
-    // قبل از ساعت switchHour => همان جلسه امروز
-    // بعد از ساعت switchHour => جلسه بعدی
     if (sameYMD(now, last)){
-      if (now.getHours() >= switchHour) return addDays(last, intervalDays);
-      return last;
+      return (now.getHours() >= switchHour) ? addDays(last, intervalDays) : last;
     }
 
-    // در غیر این صورت جلسه بعدی
     return addDays(last, intervalDays);
   }
 
@@ -221,10 +219,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const el = document.getElementById("nextPrayerDate");
     if (el) el.textContent = formatEn(next);
 
-    // اگر امروز روز جلسه است و قبل از switchHour هستیم،
-    // دقیقاً همان ساعت switchHour خودکار یک بار آپدیت کن.
-    // (یعنی بدون رفرش هم بعد از 15:00 تاریخ می‌رود روی دو هفته بعد)
-    // پیدا کردن «جلسه امروز/آخرین جلسه»
+    // اگر امروز روز جلسه است و هنوز قبل از 15:00 هستیم،
+    // دقیقا ساعت 15:00 اتومات یک بار آپدیت کن.
     let last = new Date(base.getTime());
     while (addDays(last, intervalDays).getTime() <= now.getTime()) {
       last = addDays(last, intervalDays);
