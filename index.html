@@ -6,201 +6,185 @@
 <title>کلیسای ایلیا – کلیسای فارسی‌زبانان فرانکفورت</title>
 
 <style>
-    body {
-        margin: 0;
-        padding: 0;
-        font-family: "Tahoma", sans-serif;
-        background: #0d0d0d; /* مشکی مات */
-        color: #f2f2f2; /* سفید ملایم */
-        line-height: 2;
-    }
+  body{
+    margin:0;
+    padding:0;
+    font-family:"Tahoma", sans-serif;
+    background:#0d0d0d;
+    color:#f2f2f2;
+    line-height:2;
+  }
 
-    header {
-        background: #000;
-        text-align: center;
-        padding: 55px 20px;
-        border-bottom: 5px solid #d4af37; /* طلایی */
-    }
+  header{
+    background:#000;
+    text-align:center;
+    padding:55px 20px;
+    border-bottom:5px solid #d4af37;
+  }
 
-    header h1 {
-        font-size: 40px;
-        margin-bottom: 10px;
-        color: #d4af37; /* طلایی */
-        font-weight: bold;
-    }
+  header h1{
+    font-size:40px;
+    margin:0 0 10px 0;
+    color:#d4af37;
+    font-weight:bold;
+  }
 
-    header h2 {
-        font-size: 20px;
-        color: #e0e0e0;
-        margin-top: 5px;
-    }
+  header h2{
+    font-size:20px;
+    color:#e0e0e0;
+    margin:0;
+  }
 
-    .container {
-        max-width: 900px;
-        margin: 45px auto;
-        background: #1a1a1a; /* خاکستری خیلی تیره */
-        padding: 35px;
-        border-radius: 14px;
-        box-shadow: 0 0 25px rgba(0,0,0,0.5);
-        border: 1px solid #4d4d4d;
-    }
+  .container{
+    max-width:900px;
+    margin:45px auto;
+    background:#1a1a1a;
+    padding:35px;
+    border-radius:14px;
+    box-shadow:0 0 25px rgba(0,0,0,0.5);
+    border:1px solid #4d4d4d;
+  }
 
-    h3 {
-        font-size: 24px;
-        color: #d4af37;
-        border-right: 6px solid #d4af37;
-        padding-right: 14px;
-        margin-top: 45px;
-        font-weight: bold;
-    }
+  h3{
+    font-size:24px;
+    color:#d4af37;
+    border-right:6px solid #d4af37;
+    padding-right:14px;
+    margin-top:45px;
+    font-weight:bold;
+  }
 
-    a {
-        color: #d4af37;
-        text-decoration: none;
-        font-weight: bold;
-    }
+  a{
+    color:#d4af37;
+    text-decoration:none;
+    font-weight:bold;
+  }
+  a:hover{
+    text-decoration:underline;
+    color:#ffdd66;
+  }
 
-    a:hover {
-        text-decoration: underline;
-        color: #ffdd66;
-    }
+  .footer{
+    text-align:center;
+    padding:25px;
+    margin-top:40px;
+    background:#000;
+    border-top:4px solid #d4af37;
+    color:#e8e8e8;
+    font-size:16px;
+  }
 
-    .footer {
-        text-align: center;
-        padding: 25px;
-        margin-top: 40px;
-        background: #000;
-        border-top: 4px solid #d4af37;
-        color: #e8e8e8;
-        font-size: 16px;
-    }
+  .nextDateBox{
+    margin-top:12px;
+    font-size:18px;
+    color:#ffdd66;
+    white-space:nowrap;      /* همیشه یک خط */
+    overflow:hidden;
+    text-overflow:ellipsis;  /* اگر جا کم بود ... */
+  }
 
-    /* نمایش تاریخ برگزاری بعدی */
-    .nextDateBox{
-        margin-top: 12px;
-        font-size: 18px;
-        color: #ffdd66;
-        white-space: nowrap; /* ✅ تاریخ همیشه یک خط */
-        overflow: hidden;
-        text-overflow: ellipsis; /* اگر خیلی جا کم بود ... */
-    }
+  .contactBox{
+    margin-top:10px;
+    padding:16px;
+    background:#111;
+    border:1px solid #3a3a3a;
+    border-radius:14px;
+  }
 
-    #nextPrayerDate{
-        white-space: nowrap;
-        display: inline-block;
-    }
-
-    /* راه‌های ارتباطی */
-    .contactBox{
-        margin-top: 10px;
-        padding: 16px;
-        background: #111;
-        border: 1px solid #3a3a3a;
-        border-radius: 14px;
-    }
-
-    /* موبایل */
-    @media (max-width: 600px){
-        header{
-            padding: 26px 16px;
-        }
-        header h1{
-            font-size: 30px;
-        }
-        header h2{
-            font-size: 16px;
-        }
-        .container{
-            margin: 16px 10px;
-            padding: 18px;
-        }
-        h3{
-            margin-top: 28px;
-        }
-        .nextDateBox{
-            font-size: 16px;  /* موبایل: کمی کوچکتر */
-        }
-    }
+  @media (max-width: 600px){
+    header{ padding:26px 16px; }
+    header h1{ font-size:30px; }
+    header h2{ font-size:16px; }
+    .container{ margin:16px 10px; padding:18px; }
+    h3{ margin-top:28px; }
+    .nextDateBox{ font-size:16px; }
+  }
 </style>
 </head>
 
 <body>
 
 <header>
-    <h1>کلیسای ایلیا</h1>
-    <h2>کلیسای فارسی‌زبانان فرانکفورت</h2>
+  <h1>کلیسای ایلیا</h1>
+  <h2>کلیسای فارسی‌زبانان فرانکفورت</h2>
 </header>
 
 <div class="container">
 
-    <h3>خوش آمدید</h3>
-    <p>
-        به کلیسای ایلیا خوش آمدید.  
-        جایی برای پرستش، دعا، مشارکت و رشد روحانی.  
-        ما با محبت مسیح گرد یکدیگر جمع می‌شویم تا حضور خداوند را تجربه کنیم.
-    </p>
+  <h3>خوش آمدید</h3>
+  <p>
+    به کلیسای ایلیا خوش آمدید.  
+    جایی برای پرستش، دعا، مشارکت و رشد روحانی.  
+    ما با محبت مسیح گرد یکدیگر جمع می‌شویم تا حضور خداوند را تجربه کنیم.
+  </p>
 
-    <h3>جلسات کلیسا</h3>
+  <h3>جلسات کلیسا</h3>
 
-    <p>
-        ⭐ <strong>جلسهٔ دعا و نیایش – هر دو هفته یکشنبه‌ها</strong><br>
-        ⏰ ساعت ۱۲:۰۰ ظهر  
-        <br>
-        🥗 <strong>همراه با ناهار</strong>
-        <br>
+  <p>
+    ⭐ <strong>جلسهٔ دعا و نیایش – هر دو هفته یکشنبه‌ها</strong><br>
+    ⏰ ساعت ۱۲:۰۰ ظهر<br>
+    🥗 <strong>همراه با ناهار</strong>
 
-        <!-- تاریخ برگزاری بعدی (میلادی) -->
-        <div class="nextDateBox">
-            📌 <strong>تاریخ برگزاری بعدی (میلادی):</strong>
-            <span id="nextPrayerDate"></span> — 12:00
-        </div>
-    </p>
-
-    <p>
-        📍 <strong>مکان:</strong> Frankfurt am Main <br>
-        🗺️ <strong>لوکیشن:</strong>
-        <a href="https://maps.google.com/?q=Homburger+Landstraße+805,+60437+Frankfurt+am+Main" target="_blank" rel="noopener">
-            Google Maps – Homburger Landstraße 805, 60437 Frankfurt am Main
-        </a>
-    </p>
-
-    <h3>آیهٔ روز</h3>
-    <p style="font-size:18px; color:#f0f0f0; border-right:4px solid #d4af37; padding-right:15px;">
-        «زیرا هر جا دو یا سه نفر به نام من جمع شوند، من در میان ایشان هستم.»  
-        <br>— متی ۱۸:۲۰
-    </p>
-
-    <h3>راه‌های ارتباطی</h3>
-    <div class="contactBox">
-        📞 <strong>تلفن برادر حمید:</strong>
-        <a href="tel:+4915201460063">+4915201460063</a>
-        <br><br>
-        📧 <strong>ایمیل:</strong>
-        <a href="mailto:farsigemeinschaft@yahoo.com">farsigemeinschaft@yahoo.com</a>
+    <div class="nextDateBox">
+      📌 <strong>تاریخ برگزاری بعدی (میلادی):</strong>
+      <span id="nextPrayerDate">در حال محاسبه…</span> — 12:00
     </div>
+  </p>
+
+  <p>
+    📍 <strong>مکان:</strong> Frankfurt am Main <br>
+    🗺️ <strong>لوکیشن:</strong>
+    <a href="https://maps.google.com/?q=Homburger+Landstraße+805,+60437+Frankfurt+am+Main" target="_blank" rel="noopener">
+      Google Maps – Homburger Landstraße 805, 60437 Frankfurt am Main
+    </a>
+  </p>
+
+  <h3>آیهٔ روز</h3>
+  <p style="font-size:18px; color:#f0f0f0; border-right:4px solid #d4af37; padding-right:15px;">
+    «زیرا هر جا دو یا سه نفر به نام من جمع شوند، من در میان ایشان هستم.»  
+    <br>— متی ۱۸:۲۰
+  </p>
+
+  <h3>راه‌های ارتباطی</h3>
+  <div class="contactBox">
+    📞 <strong>تلفن برادر حمید:</strong>
+    <a href="tel:+4915201460063">+4915201460063</a>
+    <br><br>
+    📧 <strong>ایمیل:</strong>
+    <a href="mailto:farsigemeinschaft@yahoo.com">farsigemeinschaft@yahoo.com</a>
+  </div>
 
 </div>
 
 <div class="footer">
-    «خدا پناه و قوت ماست» – مزمور ۴۶  
-    <br>
-    کلیسای ایلیا – کلیسای فارسی‌زبانان فرانکفورت
+  «خدا پناه و قوت ماست» – مزمور ۴۶  
+  <br>
+  کلیسای ایلیا – کلیسای فارسی‌زبانان فرانکفورت
 </div>
 
 <script>
-(function(){
-  // جلسه پایه: یکشنبه 11 ژانویه 2026 ساعت 12:00 (Frankfurt)
-  const base = new Date("2026-01-11T12:00:00+01:00");
-  const intervalMs = 14 * 24 * 60 * 60 * 1000;
+document.addEventListener("DOMContentLoaded", function () {
 
-  function sameYMD(a,b){
-    return a.getFullYear()===b.getFullYear() &&
-           a.getMonth()===b.getMonth() &&
-           a.getDate()===b.getDate();
+  // جلسه پایه (جلسه‌ای که از آن شروع می‌کنیم): Sunday, 11 January 2026 at 12:00
+  // این تاریخ مبناست و هر 14 روز تکرار می‌شود.
+  const base = new Date(2026, 0, 11, 12, 0, 0); // (سال, ماه-0based, روز, ساعت, دقیقه, ثانیه)
+
+  const intervalDays = 14;
+  const switchHour = 15; // ✅ ساعت آپدیت خودکار در همان روز جلسه
+
+  function sameYMD(a, b){
+    return a.getFullYear() === b.getFullYear() &&
+           a.getMonth() === b.getMonth() &&
+           a.getDate() === b.getDate();
   }
 
-  function formatGregorian(d){
-    // نمایش میلادی با حروف انگلیسی (لاتین)
+  function addDays(d, days){
+    const x = new Date(d.getTime());
+    x.setDate(x.getDate() + days);
+    return x;
+  }
+
+  function formatEn(d){
     const fmt = new Intl.DateTimeFormat("en-GB", {
       weekday:"long", day:"2-digit", month:"long", year:"numeric"
     });
@@ -208,22 +192,26 @@
   }
 
   function computeNext(now){
-    let next;
-    if(now.getTime() < base.getTime()){
-      next = new Date(base.getTime());
-    } else {
-      const k = Math.floor((now.getTime() - base.getTime()) / intervalMs);
-      const last = new Date(base.getTime() + k * intervalMs);
+    // اگر هنوز قبل از مبنا هستیم، همان مبنا جلسه بعدی است
+    if (now.getTime() < base.getTime()) return new Date(base.getTime());
 
-      if(sameYMD(now, last)){
-        // روز جلسه است: قبل از 16 همان روز => همان جلسه
-        // بعد از 16 => جلسه بعدی
-        next = (now.getHours() >= 16) ? new Date(last.getTime() + intervalMs) : new Date(last.getTime());
-      } else {
-        next = new Date(last.getTime() + intervalMs);
-      }
+    // اختلاف روزی (تقریبی اما دقیق برای این سناریو)
+    // از روش تقویمی استفاده می‌کنیم تا DST کمتر اذیت کند
+    let last = new Date(base.getTime());
+    while (addDays(last, intervalDays).getTime() <= now.getTime()) {
+      last = addDays(last, intervalDays);
     }
-    return next;
+
+    // اگر امروز روز جلسه است:
+    // قبل از ساعت switchHour => همان جلسه امروز
+    // بعد از ساعت switchHour => جلسه بعدی
+    if (sameYMD(now, last)){
+      if (now.getHours() >= switchHour) return addDays(last, intervalDays);
+      return last;
+    }
+
+    // در غیر این صورت جلسه بعدی
+    return addDays(last, intervalDays);
   }
 
   function render(){
@@ -231,24 +219,26 @@
     const next = computeNext(now);
 
     const el = document.getElementById("nextPrayerDate");
-    if(el) el.textContent = formatGregorian(next);
+    if (el) el.textContent = formatEn(next);
 
-    // اگر امروز روز جلسه است و هنوز قبل از 16:00 هستیم،
-    // تایمر بگذار که دقیقاً ساعت 16:00 خودکار آپدیت کند.
-    const k = Math.floor((now.getTime() - base.getTime()) / intervalMs);
-    const last = new Date(base.getTime() + Math.max(0,k) * intervalMs);
+    // اگر امروز روز جلسه است و قبل از switchHour هستیم،
+    // دقیقاً همان ساعت switchHour خودکار یک بار آپدیت کن.
+    // (یعنی بدون رفرش هم بعد از 15:00 تاریخ می‌رود روی دو هفته بعد)
+    // پیدا کردن «جلسه امروز/آخرین جلسه»
+    let last = new Date(base.getTime());
+    while (addDays(last, intervalDays).getTime() <= now.getTime()) {
+      last = addDays(last, intervalDays);
+    }
 
-    if(sameYMD(now, last) && now.getHours() < 16){
-      const switchTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 16, 0, 0, 0);
+    if (sameYMD(now, last) && now.getHours() < switchHour){
+      const switchTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), switchHour, 0, 0, 0);
       const ms = switchTime.getTime() - now.getTime();
-      if(ms > 0){
-        setTimeout(render, ms + 500);
-      }
+      if (ms > 0) setTimeout(render, ms + 500);
     }
   }
 
   render();
-})();
+});
 </script>
 
 </body>
