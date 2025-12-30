@@ -18,17 +18,15 @@
   header{
     background:#000;
     text-align:center;
-    padding:28px 16px;     /* کمتر برای موبایل */
+    padding:26px 16px;              /* فاصله کمتر برای موبایل */
     border-bottom:5px solid #d4af37;
   }
-
   header h1{
     font-size:34px;
     margin:0 0 8px 0;
     color:#d4af37;
     font-weight:bold;
   }
-
   header h2{
     font-size:17px;
     color:#e0e0e0;
@@ -37,9 +35,9 @@
 
   .container{
     max-width:900px;
-    margin:16px auto;      /* کمتر */
+    margin:14px auto;              /* کمتر */
     background:#1a1a1a;
-    padding:20px;          /* کمتر */
+    padding:18px;                  /* کمتر */
     border-radius:14px;
     box-shadow:0 0 25px rgba(0,0,0,0.5);
     border:1px solid #4d4d4d;
@@ -50,7 +48,7 @@
     color:#d4af37;
     border-right:6px solid #d4af37;
     padding-right:14px;
-    margin-top:22px;
+    margin-top:20px;
     margin-bottom:10px;
     font-weight:bold;
   }
@@ -71,129 +69,3 @@
     margin-top:22px;
     background:#000;
     border-top:4px solid #d4af37;
-    color:#e8e8e8;
-    font-size:16px;
-  }
-
-  @media (max-width: 600px){
-    header{ padding:20px 14px; }
-    header h1{ font-size:28px; }
-    header h2{ font-size:15px; }
-    .container{
-      margin:12px 10px;
-      padding:16px;
-    }
-    h3{ margin-top:18px; }
-  }
-</style>
-</head>
-
-<body>
-
-<header>
-  <h1>کلیسای ایلیا</h1>
-  <h2>کلیسای فارسی‌زبانان فرانکفورت</h2>
-</header>
-
-<div class="container">
-
-  <h3>خوش آمدید</h3>
-  <p>
-    به کلیسای ایلیا خوش آمدید.  
-    جایی برای پرستش، دعا، مشارکت و رشد روحانی.  
-    ما با محبت مسیح گرد هم جمع می‌شویم تا حضور خداوند را تجربه کنیم.
-  </p>
-
-  <h3>جلسات کلیسا</h3>
-
-  <p>
-    ⭐ <strong>یکشنبه‌ها – پرستش و موعظه</strong><br>
-    ⏰ ساعت ۱۲:۰۰ ظهر<br>
-    📍 فرانکفورت – نیدر اشباخ<br>
-    🏠 آدرس:
-    <a href="https://maps.google.com/?q=Homburger+Landstraße+805,+60437+Frankfurt+am+Main" target="_blank" rel="noopener">
-      Homburger Landstraße 805, 60437 Frankfurt am Main, Nieder-Eschbach
-    </a>
-  </p>
-
-  <p>
-    ⭐ <strong>جلسهٔ دعا و نیایش – هر دو هفته یکشنبه‌ها</strong><br>
-    ⏰ ساعت ۱۲:۰۰ ظهر<br>
-    🥗 <strong>همراه با ناهار</strong><br><br>
-
-    <!-- اینجا دقیقاً نوشته می‌شود: جلسه بعدی 11 ژانویه -->
-    <span id="nextPrayer" style="display:block; font-size:18px; color:#ffdd66;"></span>
-    <span style="display:block; margin-top:6px; font-size:14px; color:#cfcfcf;">
-      (تاریخ به میلادی نمایش داده می‌شود و بعد از ساعت 16 روز جلسه، خودکار روی جلسهٔ بعدی می‌رود.)
-    </span>
-  </p>
-
-  <h3>آیهٔ روز</h3>
-  <p style="font-size:18px; color:#f0f0f0; border-right:4px solid #d4af37; padding-right:15px;">
-    «زیرا هر جا دو یا سه نفر به نام من جمع شوند، من در میان ایشان هستم.»
-    <br>— متی ۱۸:۲۰
-  </p>
-
-  <h3>تماس با ما</h3>
-  <p>
-    📞 تلفن حمید:
-    <a href="tel:+4915201460063">+4915201460063</a>
-    <br><br>
-    📧 ایمیل:
-    <a href="mailto:farsigemeinschaft@yahoo.com">farsigemeinschaft@yahoo.com</a>
-  </p>
-
-</div>
-
-<div class="footer">
-  «خدا پناه و قوت ماست» – مزمور ۴۶
-  <br>
-  کلیسای ایلیا – کلیسای فارسی‌زبانان فرانکفورت
-</div>
-
-<script>
-(function(){
-  /*
-    جلسه پایه: 11 January 2026 ساعت 12:00
-    هر 14 روز تکرار می‌شود.
-    اگر امروز روز جلسه است:
-      - قبل از ساعت 16 => همان جلسه امروز را نشان بده
-      - بعد از ساعت 16 => جلسه بعدی (14 روز بعد) را نشان بده
-  */
-
-  const base = new Date("2026-01-11T12:00:00+01:00"); // 11 Jan 2026
-  const intervalMs = 14 * 24 * 60 * 60 * 1000;
-  const now = new Date();
-
-  function sameYMD(a,b){
-    return a.getFullYear()===b.getFullYear() && a.getMonth()===b.getMonth() && a.getDate()===b.getDate();
-  }
-
-  let next;
-  if(now.getTime() < base.getTime()){
-    next = new Date(base.getTime());
-  } else {
-    const k = Math.floor((now.getTime() - base.getTime()) / intervalMs);
-    const last = new Date(base.getTime() + k * intervalMs);
-
-    if(sameYMD(now, last)){
-      next = (now.getHours() >= 16) ? new Date(last.getTime() + intervalMs) : new Date(last.getTime());
-    } else {
-      next = new Date(last.getTime() + intervalMs);
-    }
-  }
-
-  // نمایش میلادی (Gregorian) به انگلیسی/لاتین
-  const fmt = new Intl.DateTimeFormat("en-GB", {
-    weekday:"long", day:"2-digit", month:"long", year:"numeric"
-  });
-
-  const el = document.getElementById("nextPrayer");
-  if(el){
-    el.innerHTML = "📌 <strong>جلسهٔ بعدی (Gregorian):</strong> " + fmt.format(next) + " — 12:00";
-  }
-})();
-</script>
-
-</body>
-</html>
