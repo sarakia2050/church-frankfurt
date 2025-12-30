@@ -35,6 +35,23 @@
         margin-top: 5px;
     }
 
+    /* دکمه ارتباط با کلیسا */
+    .cta{
+        display:inline-block;
+        margin-top:18px;
+        padding:12px 22px;
+        border:2px solid #d4af37;
+        border-radius:12px;
+        color:#d4af37;
+        font-weight:bold;
+        text-decoration:none;
+    }
+    .cta:hover{
+        background:#d4af37;
+        color:#000;
+        text-decoration:none;
+    }
+
     .container {
         max-width: 900px;
         margin: 45px auto;
@@ -65,6 +82,43 @@
         color: #ffdd66;
     }
 
+    /* فرم تماس */
+    .contact-form input,
+    .contact-form textarea{
+        width:100%;
+        padding:10px;
+        margin:8px 0;
+        border-radius:10px;
+        border:1px solid #444;
+        background:#111;
+        color:#fff;
+        box-sizing:border-box;
+        font-family: "Tahoma", sans-serif;
+        font-size: 16px;
+    }
+
+    .contact-form button{
+        padding:12px 20px;
+        border-radius:12px;
+        border:2px solid #d4af37;
+        background:#000;
+        color:#d4af37;
+        font-weight:bold;
+        cursor:pointer;
+        font-size: 16px;
+        font-family: "Tahoma", sans-serif;
+    }
+    .contact-form button:hover{
+        background:#d4af37;
+        color:#000;
+    }
+
+    .note {
+        margin-top: 10px;
+        color: #cfcfcf;
+        font-size: 15px;
+    }
+
     .footer {
         text-align: center;
         padding: 25px;
@@ -82,6 +136,9 @@
 <header>
     <h1>کلیسای ایلیا</h1>
     <h2>کلیسای فارسی‌زبانان فرانکفورت</h2>
+
+    <!-- دکمه ارتباط با کلیسا -->
+    <a class="cta" href="#contact">ارتباط با کلیسا</a>
 </header>
 
 <div class="container">
@@ -110,6 +167,8 @@
         ⏰ ساعت ۱۲:۰۰ ظهر  
         <br>
         🥗 <strong>همراه با ناهار</strong>
+        <br>
+        <span id="nextPrayer" style="display:block; margin-top:10px; font-size:18px; color:#ffdd66;"></span>
     </p>
 
     <h3>آیهٔ روز</h3>
@@ -118,8 +177,28 @@
         <br>— متی ۱۸:۲۰
     </p>
 
-    <h3>تماس با ما</h3>
-    <p>
+    <!-- بخش تماس + فرم -->
+    <h3 id="contact">تماس و ارتباط با کلیسا</h3>
+
+    <p class="note">
+        اگر سوالی دارید یا می‌خواهید با ما در ارتباط باشید، پیام بگذارید. هر زمان یکی از خادمین فرصت کند، پاسخ خواهد داد.
+    </p>
+
+    <!-- مهم: این لینک را باید از Formspree بگیرید و جای YOUR_FORM_ID بگذارید -->
+    <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <label>نام:</label>
+        <input name="name" required>
+
+        <label>ایمیل یا شماره تماس:</label>
+        <input name="contact" required>
+
+        <label>پیام / سوال:</label>
+        <textarea name="message" rows="5" required></textarea>
+
+        <button type="submit">ارسال پیام</button>
+    </form>
+
+    <p style="margin-top:25px;">
         📞 تلفن حمید:  
         <a href="tel:+4915201460063">+4915201460063</a>
         <br><br>
@@ -134,6 +213,33 @@
     <br>
     کلیسای ایلیا – کلیسای فارسی‌زبانان فرانکفورت
 </div>
+
+<!-- محاسبه خودکار جلسه دعا هر دو هفته بر اساس 4 ژانویه 2026 -->
+<script>
+(function(){
+  // جلسه پایه: 4 ژانویه 2026 ساعت 12:00 (Frankfurt)
+  const base = new Date("2026-01-04T12:00:00+01:00");
+  const now = new Date();
+
+  // هر دو هفته = 14 روز
+  const intervalMs = 14 * 24 * 60 * 60 * 1000;
+
+  // پیدا کردن اولین جلسه بعد از امروز
+  let next = new Date(base.getTime());
+  while (next.getTime() < now.getTime()) {
+    next = new Date(next.getTime() + intervalMs);
+  }
+
+  const fmt = new Intl.DateTimeFormat("fa-IR", {
+    weekday: "long", year: "numeric", month: "long", day: "numeric"
+  });
+
+  const el = document.getElementById("nextPrayer");
+  if(el){
+    el.innerHTML = "📌 <strong>جلسهٔ بعدی دعا:</strong> " + fmt.format(next) + " — ساعت ۱۲:۰۰";
+  }
+})();
+</script>
 
 </body>
 </html>
