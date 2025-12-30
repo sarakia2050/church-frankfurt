@@ -80,6 +80,14 @@
         margin-top: 12px;
         font-size: 18px;
         color: #ffdd66;
+        white-space: nowrap; /* ✅ تاریخ همیشه یک خط */
+        overflow: hidden;
+        text-overflow: ellipsis; /* اگر خیلی جا کم بود ... */
+    }
+
+    #nextPrayerDate{
+        white-space: nowrap;
+        display: inline-block;
     }
 
     /* راه‌های ارتباطی */
@@ -108,6 +116,9 @@
         }
         h3{
             margin-top: 28px;
+        }
+        .nextDateBox{
+            font-size: 16px;  /* موبایل: کمی کوچکتر */
         }
     }
 </style>
@@ -140,11 +151,8 @@
 
         <!-- تاریخ برگزاری بعدی (میلادی) -->
         <div class="nextDateBox">
-            📌 <strong>تاریخ برگزاری بعدی (میلادی):
-           
-            </strong>
-            <span id=
-                "nextPrayerDate"></span> — 12:00
+            📌 <strong>تاریخ برگزاری بعدی (میلادی):</strong>
+            <span id="nextPrayerDate"></span> — 12:00
         </div>
     </p>
 
@@ -221,6 +229,7 @@
   function render(){
     const now = new Date();
     const next = computeNext(now);
+
     const el = document.getElementById("nextPrayerDate");
     if(el) el.textContent = formatGregorian(next);
 
@@ -233,7 +242,7 @@
       const switchTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 16, 0, 0, 0);
       const ms = switchTime.getTime() - now.getTime();
       if(ms > 0){
-        setTimeout(render, ms + 500); // +500 برای اطمینان
+        setTimeout(render, ms + 500);
       }
     }
   }
