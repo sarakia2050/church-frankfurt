@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>کلیسای ایلیا – کلیسای فارسی‌زبانان فرانکفورت</title>
 
 <style>
@@ -18,54 +18,39 @@
   header{
     background:#000;
     text-align:center;
-    padding:40px 16px;              /* کمتر شد */
+    padding:28px 16px;     /* کمتر برای موبایل */
     border-bottom:5px solid #d4af37;
   }
+
   header h1{
-    font-size:38px;
+    font-size:34px;
     margin:0 0 8px 0;
     color:#d4af37;
     font-weight:bold;
   }
+
   header h2{
-    font-size:18px;
+    font-size:17px;
     color:#e0e0e0;
     margin:0;
   }
 
-  /* دکمه ارتباط */
-  .cta{
-    display:inline-block;
-    margin-top:14px;
-    padding:12px 22px;
-    border:2px solid #d4af37;
-    border-radius:12px;
-    color:#d4af37;
-    font-weight:bold;
-    text-decoration:none;
-  }
-  .cta:hover{
-    background:#d4af37;
-    color:#000;
-    text-decoration:none;
-  }
-
   .container{
     max-width:900px;
-    margin:26px auto;               /* کمتر شد */
+    margin:16px auto;      /* کمتر */
     background:#1a1a1a;
-    padding:28px;                   /* کمتر شد */
+    padding:20px;          /* کمتر */
     border-radius:14px;
     box-shadow:0 0 25px rgba(0,0,0,0.5);
     border:1px solid #4d4d4d;
   }
 
   h3{
-    font-size:22px;
+    font-size:21px;
     color:#d4af37;
     border-right:6px solid #d4af37;
     padding-right:14px;
-    margin-top:28px;                /* کمتر شد */
+    margin-top:22px;
     margin-bottom:10px;
     font-weight:bold;
   }
@@ -80,69 +65,25 @@
     color:#ffdd66;
   }
 
-  /* فرم تماس */
-  .contact-form input,
-  .contact-form textarea{
-    width:100%;
-    padding:10px;
-    margin:8px 0;
-    border-radius:10px;
-    border:1px solid #444;
-    background:#111;
-    color:#fff;
-    box-sizing:border-box;
-    font-family:"Tahoma", sans-serif;
-    font-size:16px;
-  }
-
-  .contact-form button,
-  .btn-mail{
-    padding:12px 20px;
-    border-radius:12px;
-    border:2px solid #d4af37;
-    background:#000;
-    color:#d4af37;
-    font-weight:bold;
-    cursor:pointer;
-    font-size:16px;
-    font-family:"Tahoma", sans-serif;
-    display:inline-block;
-    text-decoration:none;
-    margin-top:8px;
-  }
-  .contact-form button:hover,
-  .btn-mail:hover{
-    background:#d4af37;
-    color:#000;
-    text-decoration:none;
-  }
-
-  .note{
-    margin-top:6px;
-    color:#cfcfcf;
-    font-size:15px;
-  }
-
   .footer{
     text-align:center;
-    padding:20px;
-    margin-top:30px;
+    padding:18px;
+    margin-top:22px;
     background:#000;
     border-top:4px solid #d4af37;
     color:#e8e8e8;
     font-size:16px;
   }
 
-  /* تنظیمات موبایل: فاصله‌ها کمتر */
   @media (max-width: 600px){
-    header{ padding:24px 14px; }
-    header h1{ font-size:30px; }
-    header h2{ font-size:16px; }
+    header{ padding:20px 14px; }
+    header h1{ font-size:28px; }
+    header h2{ font-size:15px; }
     .container{
-      margin:16px 10px;
-      padding:18px;
+      margin:12px 10px;
+      padding:16px;
     }
-    h3{ margin-top:22px; }
+    h3{ margin-top:18px; }
   }
 </style>
 </head>
@@ -152,7 +93,6 @@
 <header>
   <h1>کلیسای ایلیا</h1>
   <h2>کلیسای فارسی‌زبانان فرانکفورت</h2>
-  <a class="cta" href="#contact">ارتباط با کلیسا</a>
 </header>
 
 <div class="container">
@@ -167,54 +107,93 @@
   <h3>جلسات کلیسا</h3>
 
   <p>
-    ⭐ <strong>جلسهٔ دعا و نیایش – هر دو هفته یکشنبه‌ها</strong><br>
+    ⭐ <strong>یکشنبه‌ها – پرستش و موعظه</strong><br>
     ⏰ ساعت ۱۲:۰۰ ظهر<br>
-    🥗 <strong>همراه با ناهار</strong><br>
-    <span id="nextPrayer" style="display:block; margin-top:10px; font-size:18px; color:#ffdd66;"></span>
-  </p>
-
-  <p>
-    📍 فرانکفورت – نیدر اشباخ <br>
+    📍 فرانکفورت – نیدر اشباخ<br>
     🏠 آدرس:
-    <a href="https://maps.google.com/?q=Homburger+Landstraße+805,+60437+Frankfurt+am+Main" target="_blank">
+    <a href="https://maps.google.com/?q=Homburger+Landstraße+805,+60437+Frankfurt+am+Main" target="_blank" rel="noopener">
       Homburger Landstraße 805, 60437 Frankfurt am Main, Nieder-Eschbach
     </a>
   </p>
 
+  <p>
+    ⭐ <strong>جلسهٔ دعا و نیایش – هر دو هفته یکشنبه‌ها</strong><br>
+    ⏰ ساعت ۱۲:۰۰ ظهر<br>
+    🥗 <strong>همراه با ناهار</strong><br><br>
+
+    <!-- اینجا دقیقاً نوشته می‌شود: جلسه بعدی 11 ژانویه -->
+    <span id="nextPrayer" style="display:block; font-size:18px; color:#ffdd66;"></span>
+    <span style="display:block; margin-top:6px; font-size:14px; color:#cfcfcf;">
+      (تاریخ به میلادی نمایش داده می‌شود و بعد از ساعت 16 روز جلسه، خودکار روی جلسهٔ بعدی می‌رود.)
+    </span>
+  </p>
+
   <h3>آیهٔ روز</h3>
   <p style="font-size:18px; color:#f0f0f0; border-right:4px solid #d4af37; padding-right:15px;">
-    «زیرا هر جا دو یا سه نفر به نام من جمع شوند، من در میان ایشان هستم.»  
+    «زیرا هر جا دو یا سه نفر به نام من جمع شوند، من در میان ایشان هستم.»
     <br>— متی ۱۸:۲۰
   </p>
 
-  <h3 id="contact">تماس و ارتباط با کلیسا</h3>
-
-  <p class="note">
-    اگر سوالی دارید یا می‌خواهید با ما در ارتباط باشید، پیام بگذارید. هر زمان یکی از خادمین فرصت کند، پاسخ خواهد داد.
+  <h3>تماس با ما</h3>
+  <p>
+    📞 تلفن برادر حمید:
+    <a href="tel:+4915201460063">+4915201460063</a>
+    <br><br>
+    📧 ایمیل:
+    <a href="mailto:farsigemeinschaft@yahoo.com">farsigemeinschaft@yahoo.com</a>
   </p>
 
-  <!-- مهم: YOUR_FORM_ID را با آی‌دی واقعی Formspree جایگزین کن -->
-  <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-    <label>نام:</label>
-    <input name="name" required>
+</div>
 
-    <label>ایمیل یا شماره تماس:</label>
-    <input name="contact" required>
+<div class="footer">
+  «خدا پناه و قوت ماست» – مزمور ۴۶
+  <br>
+  کلیسای ایلیا – کلیسای فارسی‌زبانان فرانکفورت
+</div>
 
-    <label>پیام / سوال:</label>
-    <textarea name="message" rows="5" required></textarea>
+<script>
+(function(){
+  /*
+    جلسه پایه: 11 January 2026 ساعت 12:00
+    هر 14 روز تکرار می‌شود.
+    اگر امروز روز جلسه است:
+      - قبل از ساعت 16 => همان جلسه امروز را نشان بده
+      - بعد از ساعت 16 => جلسه بعدی (14 روز بعد) را نشان بده
+  */
 
-    <button type="submit">ارسال پیام</button>
-  </form>
+  const base = new Date("2026-01-11T12:00:00+01:00"); // 11 Jan 2026
+  const intervalMs = 14 * 24 * 60 * 60 * 1000;
+  const now = new Date();
 
-  <!-- راه جایگزین اگر Formspree هنوز تنظیم نشده -->
-  <p class="note">
-    اگر فرم فعلاً کار نکرد، می‌توانید مستقیم ایمیل بزنید:
-  </p>
-  <a class="btn-mail" href="mailto:farsigemeinschaft@yahoo.com?subject=پیام از سایت کلیسای ایلیا&body=سلام%0A%0Aنام:%20%0Aشماره/ایمیل:%20%0Aپیام:%20">
-    ارسال ایمیل
-  </a>
+  function sameYMD(a,b){
+    return a.getFullYear()===b.getFullYear() && a.getMonth()===b.getMonth() && a.getDate()===b.getDate();
+  }
 
-  <p style="margin-top:18px;">
-    📞 تلفن حمید:
-    <a href="tel:+4915201460063">+4915201460
+  let next;
+  if(now.getTime() < base.getTime()){
+    next = new Date(base.getTime());
+  } else {
+    const k = Math.floor((now.getTime() - base.getTime()) / intervalMs);
+    const last = new Date(base.getTime() + k * intervalMs);
+
+    if(sameYMD(now, last)){
+      next = (now.getHours() >= 16) ? new Date(last.getTime() + intervalMs) : new Date(last.getTime());
+    } else {
+      next = new Date(last.getTime() + intervalMs);
+    }
+  }
+
+  // نمایش میلادی (Gregorian) به انگلیسی/لاتین
+  const fmt = new Intl.DateTimeFormat("en-GB", {
+    weekday:"long", day:"2-digit", month:"long", year:"numeric"
+  });
+
+  const el = document.getElementById("nextPrayer");
+  if(el){
+    el.innerHTML = "📌 <strong>جلسهٔ بعدی (Gregorian):</strong> " + fmt.format(next) + " — 12:00";
+  }
+})();
+</script>
+
+</body>
+</html>
